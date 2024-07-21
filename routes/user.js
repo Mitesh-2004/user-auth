@@ -1,19 +1,46 @@
-import express from "express";
-import { User } from "../models/user.js";
-const router = express.Router();
+import { useState } from "react";
 
-router.post("/signup", async function () {
-  try {
-  } catch (error) {
-    console.error(error);
+const App = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
   }
-});
 
-router.post("/signin", async function () {
-  try {
-  } catch (error) {
-    console.error(error);
-  }
-});
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h3>SignUp</h3>
+        <input
+          type="text"
+          placeholder="name"
+          autoComplete="off"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <br />
+        <input
+          type="email"
+          placeholder="email"
+          autoComplete="off"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        <input
+          type="password"
+          placeholder="password"
+          autoComplete="off"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  );
+};
 
-export default router;
+export default App;

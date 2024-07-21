@@ -1,13 +1,20 @@
 import React from "react";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import Navbar from "./components/Navbar";
+import PageNotFound from "./pages/PageNotFound";
 const App = () => {
   return (
     <div>
-      <form>
-        <input type="email" placeholder="email" autoComplete="off" />
-        <input type="password" placeholder="password" autoComplete="off" />
-        <button>submit</button>
-      </form>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
