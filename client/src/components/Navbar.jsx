@@ -1,14 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-        <nav>
-            <Link to="/signUp"> <p>SignUp</p></Link>
-            <Link to="/signIn"> <p>SignIn</p></Link>
-           
-        </nav>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/signup">SignUp</Link>
+          </li>
+          <li>
+            <Link to="signin">SignIn</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
