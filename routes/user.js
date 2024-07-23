@@ -2,6 +2,8 @@ import express from "express";
 import { User } from "../models/user.js";
 import bcrypt from "bcrypt";
 const router = express.Router();
+import { sendOtpEmail } from "../utils/email.js";
+import { otpgenerator } from "../utils/otp.js";
 
 router.post("/signup", async function (req, res) {
   try {
@@ -49,5 +51,22 @@ router.post("/signin", async function (req, res) {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+// router.post("/forgotpassword", async function (req, res) {
+//   try {
+//     const { email } = req.body;
+//     if (!email) {
+//       return res.status(400).json({ message: "Email required" });
+//     }
+//     const otp = otpgenerator();
+//     await sendOtpEmail(otp, email);
+//     console.log("OTP:", otp);
+
+//     return res.status(201).json({ message: "OTP sent successfully", otp });
+//   } catch (error) {
+//     console.error("Error:", error);
+//     return res.status(500).json({ message: "Internal Server Error" });
+//   }
+// });
 
 export default router;
