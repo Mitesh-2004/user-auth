@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import PageNotFound from "./pages/PageNotFound";
 import { Toaster } from "react-hot-toast";
 import ForgotPassword from "./pages/ForgotPassword";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/signin" element={<SignIn />} />
           <Route exact path="*" element={<PageNotFound />} />
